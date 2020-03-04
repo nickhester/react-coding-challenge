@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import Api from '../api'
+import MessageDisplayContainer from './MessageDisplayContainer';
 
 class MessageList extends React.PureComponent {
   constructor(...args) {
@@ -28,7 +29,8 @@ class MessageList extends React.PureComponent {
         message,
       ],
     }, () => {
-      // Included to support initial direction. Please remove upon completion
+      // Included to support initial direction.
+      // todo: Please remove upon completion.
       console.log(messages)
     })
   }
@@ -47,12 +49,17 @@ class MessageList extends React.PureComponent {
     const isApiStarted = this.api.isStarted()
     return (
       <div>
-        <Button
-          variant="contained"
-          onClick={this.handleClick}
-        >
-          {isApiStarted ? 'Stop Messages' : 'Start Messages'}
-        </Button>
+        <h2>Help.com Coding Challenge</h2>
+        <hr/>
+        <div>
+          <Button
+            onClick={this.handleClick}
+          >
+            {isApiStarted ? 'STOP' : 'START'}
+          </Button>
+          <Button>CLEAR</Button>
+        </div>
+        <MessageDisplayContainer />
       </div>
     )
   }

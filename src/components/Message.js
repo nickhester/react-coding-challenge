@@ -1,21 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import * as Constants from './Contants';
 
 export default function Message(props) {
-    let styleColor;
-    if (props.type === 1) styleColor = '#F56236';
-    else if (props.type === 2) styleColor = '#FCE788';
-    else styleColor = '#88FCA3';
+    const styles = useStyles(props.type - 1);
 
     return (
-        <div style={{backgroundColor: styleColor, margin: '5px'}}>
-            {props.text}
-            <button onClick={props.onClickClear}>
-                CLEAR
-            </button>
-        </div>
+        <Card style={styles.card} raised>
+            <div style={styles.text}>
+                {props.text}
+            </div>
+            <Button style={styles.button} onClick={props.onClickClear}>
+                Clear
+            </Button>
+        </Card>
     );
 }
+
+const colors = [Constants.red, Constants.yellow, Constants.green];
+
+function useStyles(colorIndex) {
+    return {
+        card: {
+            backgroundColor: colors[colorIndex],
+            margin: '5px 0',
+            minHeight: '50px',
+            padding: '10px',
+            display: 'flex',
+            width: '100%',
+        },
+        text: {
+            flex: '1 1 auto',
+            fontFamily: 'Roboto',
+            fontSize: '0.9em',
+            fontWeight: '500'
+        },
+        button: {
+            flex: '0 0 auto',
+            textTransform: 'none'
+        }
+    }
+};
 
 Message.propTypes = {
     text: PropTypes.string.isRequired,

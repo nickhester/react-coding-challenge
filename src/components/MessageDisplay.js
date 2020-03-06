@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import MessageColumn from './MessageColumn';
 
 export default function MessageDisplay(props) {
+    const styles = useStyles();
     return (
-        <div style={{margin: '20px 60px 0px', display: 'flex', justifyContent: 'space-evenly', backgroundColor: 'gray'}}>
+        <div style={styles.root}>
             <MessageColumn
                 messages={props.errorMessages}
                 name="Error Type 1"
@@ -23,6 +24,16 @@ export default function MessageDisplay(props) {
         </div>
     );
 }
+
+function useStyles() {
+    return {
+        root: {
+            margin: '20px 60px 0px',
+            display: 'flex',
+            justifyContent: 'space-evenly'
+        }
+    }
+};
 
 MessageDisplay.propTypes = {
     errorMessages: PropTypes.array.isRequired,

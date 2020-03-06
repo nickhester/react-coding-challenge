@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Message from './Message';
+import * as Constants from './Contants';
 
 export default function MessageColumn(props) {
+    const styles = useStyles();
+
     return (
-        <div style={{ backgroundColor: 'lightgray', margin: '5px', minHeight: '100px', flex: '1 1 auto' }}>
-            {props.name}
-            {`Count ${props.messages.length}`}
+        <div style={styles.root}>
+            <div style={styles.title}>{props.name}</div>
+            <div style={styles.count}>{`Count ${props.messages.length}`}</div>
             {props.messages.map(m => {
                 return (
                     <Message
@@ -20,6 +23,22 @@ export default function MessageColumn(props) {
         </div>
     );
 }
+
+function useStyles() {
+    return {
+        root: {
+            flex: '1 1 1',
+            width: '100%',
+            padding: '5px'
+        },
+        title: Constants.headerStyle,
+        count: {
+            fontFamily: 'Roboto',
+            fontSize: '0.9em',
+            lineHeight: '2em'
+        }
+    }
+};
 
 MessageColumn.propTypes = {
     messages: PropTypes.array.isRequired,

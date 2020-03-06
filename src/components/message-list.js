@@ -1,10 +1,12 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import Controls from './Controls';
 import Api from '../api';
 import MessageDisplay from './MessageDisplay';
+import * as Constants from './Contants';
+import './styles.css';
 
 class MessageList extends React.PureComponent {
   constructor(...args) {
@@ -86,20 +88,15 @@ class MessageList extends React.PureComponent {
     const isApiStarted = this.api.isStarted();
     return (
       <div>
-        <h2>Help.com Coding Challenge</h2>
-        <hr />
-        <div>
-          <Button
-            onClick={this.handleClick}
-          >
-            {isApiStarted ? 'STOP' : 'START'}
-          </Button>
-          <Button
-            onClick={this.clearAllMessages}
-          >
-            CLEAR
-          </Button>
+        <div style={{ ...Constants.headerStyle, margin: '15px 40px' }}>
+          Help.com Coding Challenge
         </div>
+        <hr />
+        <Controls
+          onClickStartStop={this.handleClick}
+          onClickClear={this.clearAllMessages}
+          isRunning={isApiStarted}
+        />
         <MessageDisplay
           errorMessages={this.state.messages.filter(m => m.priority === 1)}
           warningMessages={this.state.messages.filter(m => m.priority === 2)}

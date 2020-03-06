@@ -1,10 +1,8 @@
 import React from 'react';
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
 import Controls from './Controls';
 import Api from '../api';
 import MessageDisplay from './MessageDisplay';
+import ErrorSnackbar from './ErrorSnackbar';
 import * as Constants from './Contants';
 import './styles.css';
 
@@ -87,8 +85,8 @@ class MessageList extends React.PureComponent {
   render() {
     const isApiStarted = this.api.isStarted();
     return (
-      <div>
-        <div style={{ ...Constants.headerStyle, margin: '15px 40px' }}>
+      <div style={{minWidth: '450px'}}>
+        <div style={{ ...Constants.headerStyle, margin: '40px 40px 15px' }}>
           Help.com Coding Challenge
         </div>
         <hr />
@@ -103,21 +101,12 @@ class MessageList extends React.PureComponent {
           infoMessages={this.state.messages.filter(m => m.priority === 3)}
           onClickClearMessage={this.clearMessage}
         />
-        <Snackbar
-          open={this.state.snackbarOpen}
-          message={this.state.snackbarMessage}
-          autoHideDuration={2000}
+        <ErrorSnackbar
+          snackbarIsOpen={this.state.snackbarOpen}
           onClose={() => this.openSnackbar(false)}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
-          }}
-          action={
-            <IconButton size="small" onClick={() => this.openSnackbar(false)}>
-              <CloseIcon fontSize="small" />
-            </IconButton>
-          }
-        />
+        >
+          {this.state.snackbarMessage}
+        </ErrorSnackbar>
       </div>
     );
   }

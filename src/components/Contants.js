@@ -6,3 +6,7 @@ export const headerStyle = {
     fontSize: '1.17em',
     fontWeight: '500'
 };
+export const paragraphStyle = {
+    fontFamily: 'Roboto',
+    fontSize: '0.9em'
+};

@@ -33,8 +33,7 @@ function useStyles() {
         },
         title: Constants.headerStyle,
         count: {
-            fontFamily: 'Roboto',
-            fontSize: '0.9em',
+            ...Constants.paragraphStyle,
             lineHeight: '2em'
         }
     }

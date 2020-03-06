@@ -32,9 +32,8 @@ function useStyles(colorIndex) {
             width: '100%',
         },
         text: {
+            ...Constants.paragraphStyle,
             flex: '1 1 auto',
-            fontFamily: 'Roboto',
-            fontSize: '0.9em',
             fontWeight: '500'
         },
         button: {

@@ -28,7 +28,7 @@ export default function MessageDisplay(props) {
 function useStyles() {
     return {
         root: {
-            margin: '20px 60px 0px',
+            margin: '20px 140px 0px',
             display: 'flex',
             justifyContent: 'space-evenly'
         }

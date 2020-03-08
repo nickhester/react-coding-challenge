@@ -1,3 +1,7 @@
+## This Fork
+
+This fork is Nick's take on the coding challenge. Below is the original README.
+
 ## React Coding Challenge
 
 This code challenge tests your skills in react.js, testing and modular design.

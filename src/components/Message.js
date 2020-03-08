@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import * as Constants from './Contants';
+import * as Constants from './Constants';
 
 export default function Message(props) {
     const styles = useStyles(props.type - 1);

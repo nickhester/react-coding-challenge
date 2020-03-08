@@ -3,7 +3,7 @@ import Controls from './Controls';
 import Api from '../api';
 import MessageDisplay from './MessageDisplay';
 import ErrorSnackbar from './ErrorSnackbar';
-import * as Constants from './Contants';
+import * as Constants from './Constants';
 import './styles.css';
 
 class MessageList extends React.PureComponent {

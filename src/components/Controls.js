@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import * as Constants from './Contants';
+import * as Constants from './Constants';
 
 export default function Controls(props) {
     const styles = useStyles();

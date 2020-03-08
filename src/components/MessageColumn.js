@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Message from './Message';
-import * as Constants from './Contants';
+import * as Constants from './Constants';
 
 export default function MessageColumn(props) {
     const styles = useStyles();
